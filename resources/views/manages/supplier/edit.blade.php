@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan Supplier')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'User')
-@section('menu', 'User')
-@section('process', 'Edit User')
+@section('main-menu', 'Supplier')
+@section('menu', 'Supplier')
+@section('process', 'Edit Supplier')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,27 +33,27 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form action="{{ url('users/'.$user->id) }}" method="POST">
+                    <form action="{{ url('suppliers/'.$supplier->id) }}" method="POST">
                       @method('patch')
                       @csrf
                       <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" required>
-                        @error('name')
+                        <label for="nama_supplier">Nama Supplier</label>
+                        <input type="text" id="nama_supplier" name="nama_supplier" class="form-control @error('nama_supplier') is-invalid @enderror" value="{{ $supplier->nama_supplier }}" required>
+                        @error('nama_supplier')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" required>
-                        @error('email')
+                        <label for="no_telp">No Telepon</label>
+                        <input type="no_telp" id="no_telp" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ $supplier->no_telp }}" required>
+                        @error('no_telp')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ $user->password }}" required>
-                        @error('password')
+                        <label for="alamat">Alamat</label>
+                        <input type="alamat" id="alamat" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ $supplier->alamat }}" required>
+                        @error('alamat')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
@@ -66,42 +66,7 @@
                 </div>
                 <!-- /.card -->
               </div>
-              {{-- <div class="col-md-6">
-                <div class="card card-secondary">
-                  <div class="card-header">
-                    <h3 class="card-title">Budget</h3>
-      
-                    <div class="card-tools">
-                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="inputEstimatedBudget">Estimated budget</label>
-                      <input type="number" id="inputEstimatedBudget" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputSpentBudget">Total amount spent</label>
-                      <input type="number" id="inputSpentBudget" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEstimatedDuration">Estimated project duration</label>
-                      <input type="number" id="inputEstimatedDuration" class="form-control">
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-              </div>
-            </div> --}}
-            {{-- <div class="row">
-              <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Create new Project" class="btn btn-success float-right">
-              </div>
-            </div> --}}
+              
           </section>
           <!-- /.content -->
         </div>
@@ -112,11 +77,3 @@
       </div>
       <!-- ./wrapper -->
 @endsection
-
-
-
-
-{{-- <input class="form-select @error('nik') is-invalid @enderror" type="text" name="nik" id="nik" value="{{ old('nik') }}" required>
-             @error('nik')
-              <div class="alert alert-danger">{{ $message }}</div>
-             @enderror --}}

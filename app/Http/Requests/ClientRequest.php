@@ -14,7 +14,7 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_pembeli' => 'required|max:255',
+            'nama_pembeli' => 'required',
             'jk' => 'required',
             'no_telp' => 'required',
             'alamat' => 'required|string',

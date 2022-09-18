@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'Penjualan Supplier')
+@section('title', 'Penjualan Stuff')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'Supplier')
-@section('menu', 'Supplier')
-@section('process', 'Read Supplier')
+@section('main-menu', 'Stuff')
+@section('menu', 'Stuff')
+@section('process', 'Read Stuff')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -37,23 +37,25 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Supplier</th>
-                          <th>No. Telepon</th>
-                          <th>Alamat</th>
+                          <th>Nama Barang</th>
+                          <th>Harga</th>
+                          <th>Stok</th>
+                          <th>Supplier ID</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($suppliers as $s)
+                        @foreach($stuffs as $s)
                         <tr>
                           <td>{{ $loop->iteration }}</td>
-                          <td>{{ $s->nama_supplier }}</td>
-                          <td>{{ $s->no_telp }}</td>
-                          <td>{{ $s->alamat }}</td>
+                          <td>{{ $s->nama_barang ?? '-' }}</td>
+                          <td>{{ $s->harga ?? '-' }}</td>
+                          <td>{{ $s->stok ?? '-' }}</td>
+                          <td>{{ $s->supplierName($s->supplier_id)->nama_supplier}}</td>
                           
                           <td>
-                            <a href="{{ url('suppliers/'.$s->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ url('suppliers/'.$s->id) }}" method="post">
+                            <a href="{{ url('stuffs/'.$s->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ url('stuffs/'.$s->id) }}" method="post">
                               @method('delete')
                               @csrf
                               <button class="btn btn-danger btn-sm">Delete</button>
@@ -68,7 +70,7 @@
                 </div>
                 <!-- /.card -->
               </div>
-              
+             
           </section>
           <!-- /.content -->
         </div>

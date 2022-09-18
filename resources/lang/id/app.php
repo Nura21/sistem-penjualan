@@ -20,6 +20,7 @@ return [
         'client' => 'Client',
 		'tanggal' => 'Date',
         'keterangan' => 'Information',
+        'quantity' => 'Quantity'
 	],
 
     'suppliers' => [

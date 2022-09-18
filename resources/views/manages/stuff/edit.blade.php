@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'Penjualan Client')
+@section('title', 'Penjualan Stuff')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'Client')
-@section('menu', 'Client')
-@section('process', 'Edit Client')
+@section('main-menu', 'Stuff')
+@section('menu', 'Stuff')
+@section('process', 'Edit Stuff')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,34 +33,41 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form action="{{ url('clients/'.$client->id) }}" method="POST">
+                    <form action="{{ url('stuffs/'.$stuff->id) }}" method="POST">
                       @method('patch')
                       @csrf
                       <div class="form-group">
-                        <label for="nama_pembeli">Nama Pembeli</label>
-                        <input type="text" id="nama_pembeli" name="nama_pembeli" class="form-control @error('nama_pembeli') is-invalid @enderror" value="{{ $client->nama_pembeli }}" required>
-                        @error('nama_pembeli')
+                        <label for="nama_barang">Nama Barang</label>
+                        <input type="text" id="nama_barang" name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" value="{{ $stuff->nama_barang }}" required>
+                        @error('nama_barang')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="jk">Jenis Kelamin</label>
-                        <input type="text" id="jk" name="jk" class="form-control @error('jk') is-invalid @enderror" value="{{ $client->jk }}" required>
-                        @error('jk')
+                        <label for="harga">Harga</label>
+                        <input type="harga" id="harga" name="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ $stuff->harga }}" required>
+                        @error('harga')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="no_telp">No Telepon</label>
-                        <input type="no_telp" id="no_telp" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ $client->no_telp }}" required>
-                        @error('no_telp')
+                        <label for="stok">Stok</label>
+                        <input type="stok" id="stok" name="stok" class="form-control @error('stok') is-invalid @enderror" value="{{ $stuff->stok }}" required>
+                        @error('stok')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
+                      {{-- {{ dd($suppliers->toArray()) }} --}}
                       <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="alamat" id="alamat" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ $client->alamat }}" required>
-                        @error('alamat')
+                        <label for="supplier_id">Supplier ID</label>
+                        <br>
+                        <select name="supplier_id" id="supplier_id" class="form-control @error('supplier_id') is-invalid @enderror" required>
+                          <option value="{{ $stuff->supplier_id }}">{{ $stuff->supplierName($stuff->supplier_id)->nama_supplier }}</option>
+                          @foreach ($suppliers as $supplierName)
+                            <option value="{{ $supplierName->id }}">{{ $supplierName->nama_supplier }}</option>   
+                          @endforeach
+                        </select>
+                        @error('supplier_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
@@ -73,6 +80,7 @@
                 </div>
                 <!-- /.card -->
               </div>
+             
           </section>
           <!-- /.content -->
         </div>

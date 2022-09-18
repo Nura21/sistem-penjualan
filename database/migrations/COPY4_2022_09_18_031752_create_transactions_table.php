@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('stuff_id')->unsigned();
             $table->integer('client_id')->unsigned();
+            $table->integer('quantity')->unsigned();
             $table->date('tanggal');
             $table->longText('keterangan');
             $table->foreign('stuff_id')->references('id')->on('stuffs');

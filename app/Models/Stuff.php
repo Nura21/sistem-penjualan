@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Supplier;
 
 class Stuff extends Model
 {
@@ -17,4 +18,8 @@ class Stuff extends Model
         'stok',
         'supplier_id'
     ];
+
+    public function supplierName($id){
+        return Supplier::findOrFail($id);
+    }
 }

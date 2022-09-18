@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan Transaction')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'User')
-@section('menu', 'User')
-@section('process', 'Read User')
+@section('main-menu', 'Transaction')
+@section('menu', 'Transaction')
+@section('process', 'Read Transaction')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -37,23 +37,26 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Email</th>
-                          <th>Password</th>
+                          <th>Stuff ID</th>
+                          <th>Client ID</th>
+                          <th>Tanggal</th>
+                          <th>Keterangan</th>
+                          <th>Quantity</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($users as $u)
+                        @foreach($transactions as $t)
                         <tr>
                           <td>{{ $loop->iteration }}</td>
-                          <td>{{ $u->name }}</td>
-                          <td>{{ $u->email }}</td>
-                          <td>{{ $u->password }}</td>
-                          
+                          <td>{{ $t->stuffName->nama_barang }}</td>
+                          <td>{{ $t->clientName->nama_pembeli }}</td>
+                          <td>{{ $t->tanggal }}</td>
+                          <td>{{ $t->keterangan }}</td>
+                          <td>{{ $t->quantity }}</td>
                           <td>
-                            <a href="{{ url('users/'.$u->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ url('users/'.$u->id) }}" method="post">
+                            <a href="{{ url('transactions/'.$t->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ url('transactions/'.$t->id) }}" method="post">
                               @method('delete')
                               @csrf
                               <button class="btn btn-danger btn-sm">Delete</button>

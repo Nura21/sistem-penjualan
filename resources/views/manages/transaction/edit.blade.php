@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan Transaction')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'User')
-@section('menu', 'User')
-@section('process', 'Edit User')
+@section('main-menu', 'Transaction')
+@section('menu', 'Transaction')
+@section('process', 'Edit Transaction')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,27 +33,43 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form action="{{ url('users/'.$user->id) }}" method="POST">
+                    <form action="{{ url('transactions/'.$transaction->id) }}" method="POST">
                       @method('patch')
                       @csrf
                       <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" required>
-                        @error('name')
+                        <label for="stuff_id">Stuff ID</label>
+                        <input type="text" id="stuff_id" name="stuff_id" class="form-control @error('stuff_id') is-invalid @enderror" value="{{ $transaction->stuff_id }}" required>
+                        @error('stuff_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" required>
-                        @error('email')
+                        <label for="client_id">Client ID</label>
+                        <input type="client_id" id="client_id" name="client_id" class="form-control @error('client_id') is-invalid @enderror" value="{{ $transaction->client_id }}" required>
+                        @error('client_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ $user->password }}" required>
-                        @error('password')
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ $transaction->quantity }}" required>
+                        @error('quantity')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="tanggal">Tanggal</label>
+                        <input type="date" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" value="{{ $transaction->tanggal }}" required>
+                        @error('tanggal')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      {{-- {{ dd($suppliers->toArray()) }} --}}
+                      <div class="form-group">
+                        <label for="keterangan">Keterangan</label>
+                        <br>
+                        <input type="text" id="keterangan" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" value="{{ $transaction->keterangan }}" required>
+                        @error('keterangan')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>

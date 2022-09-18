@@ -17,7 +17,8 @@ class TransactionRequest extends FormRequest
             'stuff_id' => 'required|numeric',
             'client_id' => 'required|numeric',
             'tanggal' => 'required|date',
-            'keterangan' => 'required|string'
+            'keterangan' => 'required|string',
+            'quantity' => 'required|numeric',
         ];
     }
 
@@ -30,6 +31,7 @@ class TransactionRequest extends FormRequest
             'client_id.required' => 'A '.__('app.transactions.client').__('app.transactions.id').' is required',
             'tanggal.required' => 'A '.__('app.transactions.tanggal').' is required',
             'keterangan.required' => 'A'.__('app.transactions.keterangan').' is required',
+            'quantity.required' => 'A'.__('app.transactions.quantity').' is required',
         ];
     }
 }

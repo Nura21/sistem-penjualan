@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Stuff;
+use App\Models\Client;
 
 class Transaction extends Model
 {
@@ -15,7 +17,16 @@ class Transaction extends Model
         'stuff_id',
         'client_id',
         'tanggal',
-        'keterangan'
+        'keterangan',
+        'quantity'
     ];
+
+    public function stuffName(){
+        return $this->belongsTo(Stuff::class, 'stuff_id', 'id');
+    }
+
+    public function clientName(){
+        return $this->belongsTo(Client::class, 'client_id', 'id');
+    }
 
 }

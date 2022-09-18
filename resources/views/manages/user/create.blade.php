@@ -1,5 +1,5 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan User')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
@@ -37,15 +37,15 @@
                       @csrf
                         <div class="form-group">
                           <label for="fullname">Nama Lengkap</label>
-                          <input type="text" id="name" name="name" class="form-control @error('fullname') is-invalid @enderror" value="{{ old('name') }}" required>
-                          @error('fullname')
+                          <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" required>
+                          @error('nama')
                           <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                         </div>
                         <div class="form-group">
-                          <label for="email">Email</label>
-                          <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
-                          @error('email')
+                          <label for="username">Username</label>
+                          <input type="text" id="username" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" required>
+                          @error('username')
                           <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                         </div>

@@ -16,4 +16,12 @@ class Payment extends Model
         'total_bayar',
         'transaction_id',
     ];
+
+    public function transactionQuantity(){
+        return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
+    }
+
+    public function transactionKeterangan(){
+        return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
+    }
 }

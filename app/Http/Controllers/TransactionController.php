@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
+use App\Models\Stuff;
+use App\Models\Client;
 
 class TransactionController extends Controller
 {
@@ -14,8 +16,11 @@ class TransactionController extends Controller
 
     public function create()
     {
-        
-        return view('manages.transaction.create');
+        $stuffs = Stuff::all();
+
+        $clients = Client::all();
+
+        return view('manages.transaction.create', compact('stuffs', 'clients'));
     }
 
     public function store(TransactionRequest $request)
@@ -26,7 +31,8 @@ class TransactionController extends Controller
             'stuff_id' => $request->stuff_id,
             'client_id' => $request->client_id,
             'tanggal' => $request->tanggal,
-            'keterangan' => $request->keterangan
+            'keterangan' => $request->keterangan,
+            'quantity' => $request->quantity
         ]);
 
         return redirect('transactions')->with(["message" => __('app.success.create')]);
@@ -51,7 +57,8 @@ class TransactionController extends Controller
             'stuff_id' => $request->stuff_id,
             'client_id' => $request->client_id,
             'tanggal' => $request->tanggal,
-            'keterangan' => $request->keterangan
+            'keterangan' => $request->keterangan,
+            'quantity' => $request->quantity
         ]);
 
         return redirect('transactions')->with(["message" => __('app.success.edit')]);

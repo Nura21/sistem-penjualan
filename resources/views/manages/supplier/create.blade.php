@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan Supplier')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'User')
-@section('menu', 'User')
-@section('process', 'Create User')
+@section('main-menu', 'Supplier')
+@section('menu', 'Supplier')
+@section('process', 'Create Supplier')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,29 +33,29 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form action="{{ url('users') }}" method="POST">
+                    <form action="{{ url('suppliers') }}" method="POST">
                       @csrf
-                        <div class="form-group">
-                          <label for="fullname">Nama Lengkap</label>
-                          <input type="text" id="name" name="name" class="form-control @error('fullname') is-invalid @enderror" value="{{ old('name') }}" required>
-                          @error('fullname')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email</label>
-                          <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
-                          @error('email')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" required>
-                          @error('password')
-                          <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                        </div>
+                      <div class="form-group">
+                        <label for="nama_supplier">Nama Supplier</label>
+                        <input type="text" id="nama_supplier" name="nama_supplier" class="form-control @error('nama_supplier') is-invalid @enderror" value="{{ old('nama_supplier') }}" required>
+                        @error('nama_supplier')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="no_telp">No Telepon</label>
+                        <input type="no_telp" id="no_telp" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ old('no_telp') }}" required>
+                        @error('no_telp')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="alamat" id="alamat" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" required>
+                        @error('alamat')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
                         
                         <div class="form-group">
                           <button type="submit" class="btn-dark">Create</button>

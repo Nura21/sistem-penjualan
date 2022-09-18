@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\StuffRequest;
 use App\Models\Stuff;
+use App\Models\Supplier;
 
 class StuffController extends Controller
 {
@@ -14,8 +15,9 @@ class StuffController extends Controller
 
     public function create()
     {
+        $suppliers = Supplier::all();
         
-        return view('manages.stuff.create');
+        return view('manages.stuff.create',compact('suppliers'));
     }
 
     public function store(StuffRequest $request)
@@ -39,8 +41,9 @@ class StuffController extends Controller
 
     public function edit(Stuff $stuff)
     {
+        $suppliers = Supplier::all();
 
-        return view('manages.stuff.edit', compact('stuff'));
+        return view('manages.stuff.edit', compact('stuff', 'suppliers'));
     }
 
     public function update(StuffRequest $request, Stuff $stuff)
