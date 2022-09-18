@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\AuthenticationRequest;
+use App\Models\Client;
+use App\Models\Payment;
+use App\Models\Stuff;
+use App\Models\Supplier;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +50,14 @@ class AuthenticationController extends Controller
     {
         if(Auth::check()){
             
-            return view('dashboard');
+            $clients = count(Client::all());
+            $payments = count(Payment::all());
+            $stuffs = count(Stuff::all());
+            $suppliers = count(Supplier::all());
+            $transactions = count(Transaction::all());
+            $users = count(User::all());
+            
+            return view('dashboard', compact('clients', 'payments', 'stuffs', 'suppliers', 'transactions', 'users'));
         }
         
         return redirect('/')->with(['message' => __('app.errors.login')]);

@@ -27,7 +27,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>{{ $transactions }}</h3>
   
                   <p>Transactions</p>
                 </div>
@@ -42,7 +42,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <h3>{{ $suppliers }}<sup style="font-size: 20px"></sup></h3>
   
                   <p>Suppliers</p>
                 </div>
@@ -57,7 +57,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{ $users }}</h3>
   
                   <p>Users</p>
                 </div>
@@ -72,7 +72,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{ $stuffs }}</h3>
   
                   <p>Stuffs</p>
                 </div>
@@ -87,7 +87,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>{{ $clients }}</h3>
   
                   <p>Clients</p>
                 </div>
@@ -101,7 +101,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>{{ $payments }}</h3>
   
                   <p>Payments</p>
                 </div>
@@ -113,10 +113,7 @@
             </div>
             <!-- ./col -->
           </div>
-          <!-- /.row -->
-          
-          <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
       <!-- /.content -->
     </div>

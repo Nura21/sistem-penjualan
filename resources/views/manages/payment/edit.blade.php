@@ -1,11 +1,11 @@
 @extends('layouts.templates.template-crud')
-@section('title', 'PEKEL User')
+@section('title', 'Penjualan payment')
 @section('body')
 <body class="hold-transition sidebar-mini">
 @endsection
-@section('main-menu', 'User')
-@section('menu', 'User')
-@section('process', 'Edit User')
+@section('main-menu', 'Payment')
+@section('menu', 'Payment')
+@section('process', 'Edit Payment')
 @section('main')
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,29 +33,31 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <form action="{{ url('users/'.$user->id) }}" method="POST">
+                    <form action="{{ url('payments/'.$payment->id) }}" method="POST">
                       @method('patch')
                       @csrf
                       <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" required>
-                        @error('name')
+                        <label for="tgl_bayar">Tanggal Bayar</label>
+                        <input type="date" id="tgl_bayar" name="tgl_bayar" class="form-control @error('tgl_bayar') is-invalid @enderror" value="{{ $payment->tgl_bayar }}" required>
+                        @error('tgl_bayar')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" required>
-                        @error('email')
+                        <label for="total_bayar">Total Bayar</label>
+                        <input type="text" id="total_bayar" name="total_bayar" class="form-control @error('total_bayar') is-invalid @enderror" value="{{ $payment->total_bayar }}" required>
+                        @error('total_bayar')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ $user->password }}" required>
-                        @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <label for="transaction_id">Transaction ID</label>
+                        <select name="transaction_id" id="transaction_id" class="form-control @error('transaction_id') is-invalid @enderror" required>
+                          <option value="{{ $payment->transaction_id }}">{{ $payment->transactionKeterangan->id }}</option>
+                          @foreach ($transactions as $transactionName)
+                            <option value="{{ $transactionName->id }}">{{ $transactionName->keterangan}}</option>   
+                          @endforeach
+                        </select>
                       </div>
                       <div class="form-group">
                         <button type="submit" class="btn-dark">Edit</button>
