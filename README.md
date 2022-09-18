@@ -62,3 +62,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## How to Run
+
+1. run 'composer install' for the first time you open this project
+2. create your db name
+3. run 'php artisan migrate'
+4. run 'php artisan tinker', then create dummy 
+
+     User::factory()->count(20)->create()
+     Supplier::factory()->count(20)->create()
+     Client::factory()->count(20)->create()
+5. After that run with php artisan serve
+
+## The algorithm
+1. we had user, client, and the supplier already
+2. After that we should create stuff data, from supplier
+3. Then we could do transaction, the last thing we could do payment
